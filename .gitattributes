@@ -1,0 +1,11 @@
+# Let Git decide what to do, for every file. More on that later.
+* text=auto
+
+*.go text eol=lf
+*.json text eol=lf
+
+# Declare files that are binary so that their eol should not be modified.
+# Git, with the first line of this file, will probably not modify binary
+# files, but add the following just to be safe and explicit.
+*.png binary
+*.jpg binary
