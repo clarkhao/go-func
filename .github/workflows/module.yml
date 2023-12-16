@@ -1,0 +1,12 @@
+name: go-module
+
+on:
+  push:
+
+jobs:
+  pushJob:
+    runs-on: self-hosted
+    if: github.event_name == 'push'
+    steps:
+      - name: format
+        run: 
