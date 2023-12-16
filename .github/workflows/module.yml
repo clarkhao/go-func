@@ -2,6 +2,8 @@ name: go-module
 
 on:
   push:
+    tags:
+      - "*"
 
 jobs:
   pushJob:
@@ -9,4 +11,5 @@ jobs:
     if: github.event_name == 'push'
     steps:
       - name: format
-        run: 
+        run: |
+          
