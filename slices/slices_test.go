@@ -15,6 +15,10 @@ func TestToMap(t *testing.T) {
 			slices.Slices[[]string, string]{"a", "b", "c"},
 			map[string]int{"a": 1, "b": 1, "c": 1},
 		},
+		{
+			slices.NewSlice([]string{}),
+			map[string]int{},
+		},
 	}
 	for _, c := range cases {
 		output := c.inputList.ToMap()

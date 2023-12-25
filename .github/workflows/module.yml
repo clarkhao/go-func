@@ -10,6 +10,7 @@ jobs:
     runs-on: self-hosted
     if: github.event_name == 'push'
     steps:
-      - name: format
+      - name: push to sub repo
         run: |
-          
+          cd C:\Users\clark\Documents\codes\go\go-func\
+          git push -u origin v0

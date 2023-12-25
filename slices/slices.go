@@ -5,8 +5,8 @@ package slices
 type Slices[S ~[]E, E comparable] []E
 
 // NewSlice is a factory function to create a Slices instance
-func NewSlice(s []string) Slices[[]string, string] {
-	list := make(Slices[[]string, string], 0)
+func NewSlice[S ~[]E, E comparable](s S) Slices[S, E] {
+	list := make(Slices[S, E], 0)
 	for _, item := range s {
 		list = append(list, item)
 	}
