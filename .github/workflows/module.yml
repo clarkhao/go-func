@@ -2,11 +2,16 @@ name: go-module
 
 on:
   push:
+    tags:
+      - "*"
 
 jobs:
   pushJob:
     runs-on: self-hosted
     if: github.event_name == 'push'
     steps:
-      - name: format
-        run: 
+      - name: push to sub repo
+        run: |
+          cd C:\Users\clark\Documents\codes\go\go-func\
+          git checkout v0
+          git push -u origin v0

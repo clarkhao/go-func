@@ -2,7 +2,7 @@
 go fmt ./...
 golangci-lint run ./... -v
 go mod tidy
-go test ./... -v
+go test ./... -v -count=1
 # go build
 git add .
 git commit -m 'module vx.x.x'
