@@ -23,26 +23,26 @@ func TestNewNode(t *testing.T) {
 	}
 }
 
-func TestAdd(t *testing.T) {
+func TestPush(t *testing.T) {
 	cases := []struct {
 		input    string
 		expected *linked.LinkedList[string]
 	}{
 		{input: "Hello", expected: &(linked.LinkedList[string]{Value: "Hello", Next: nil})},
-		{input: "World", expected: linked.NewNode[string]("Hello").Add("World")},
-		{input: "I am Clark", expected: linked.NewNode[string]("Hello").Add("World").Add("I am Clark")},
+		{input: "World", expected: linked.NewNode[string]("Hello").Push("World")},
+		{input: "I am Clark", expected: linked.NewNode[string]("Hello").Push("World").Push("I am Clark")},
 	}
 	var node *linked.LinkedList[string]
 	var head = node
 	for i, c := range cases {
 		fmt.Println(node)
-		node = node.Add(c.input)
+		node = node.Push(c.input)
 		if i == 0 {
 			head = node
 		}
 		fmt.Println(head)
 		if node.Value != c.expected.Value {
-			t.Errorf("node.Add(%v) = %v, expected %v", c.input, node, c.expected)
+			t.Errorf("node.Push(%v) = %v, expected %v", c.input, node, c.expected)
 		}
 	}
 }
@@ -57,7 +57,7 @@ func TestIterateWithCh(t *testing.T) {
 		var node *linked.LinkedList[string] = nil
 		head := node
 		for i := 0; i < len(c.expected); i++ {
-			node = node.Add(c.expected[i])
+			node = node.Push(c.expected[i])
 			if i == 0 {
 				head = node
 			}
@@ -87,7 +87,7 @@ func TestToList(t *testing.T) {
 		var node *linked.LinkedList[string] = nil
 		head := node
 		for i := 0; i < len(c.expected); i++ {
-			node = node.Add(c.expected[i])
+			node = node.Push(c.expected[i])
 			if i == 0 {
 				head = node
 			}
@@ -113,7 +113,7 @@ func TestLen(t *testing.T) {
 		var node *linked.LinkedList[int] = nil
 		head := node
 		for i := 0; i < c.expected; i++ {
-			node = node.Add(i)
+			node = node.Push(i)
 			if i == 0 {
 				head = node
 			}

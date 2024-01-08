@@ -9,7 +9,7 @@ import (
 // SearchFile is a function which search for all destFile inside srcPath dir
 // return all dirs including the destFile or error
 func SearchFile(srcPath string, destFile string) (paths []string, err error) {
-	filepath.Walk(srcPath, func(currentPath string, info fs.FileInfo, err error) error {
+	err = filepath.Walk(srcPath, func(currentPath string, info fs.FileInfo, err error) error {
 		if info.IsDir() {
 			return nil
 		}

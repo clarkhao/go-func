@@ -21,7 +21,7 @@ func NewNode[T interface{}](value T) *LinkedList[T] {
 
 // Add is a method that add a new node with value to the end of LinkedList
 // return the address of new added node
-func (node *LinkedList[T]) Add(value T) *LinkedList[T] {
+func (node *LinkedList[T]) Push(value T) *LinkedList[T] {
 	new := NewNode[T](value)
 	if node == nil {
 		return new
